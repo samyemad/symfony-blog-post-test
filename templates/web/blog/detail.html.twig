@@ -1,0 +1,18 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ blogPost.title }}{% endblock %}
+
+{% block body %}
+    <article class="blog-post">
+        <h1>{{ blogPost.title }}</h1>
+        <h2>{{ blogPost.subtitle }}</h2>
+        <p>{{ blogPost.content }}</p>
+        {% if blogPost.featuredImage %}
+            <img src="{{ asset('uploads/' ~ blogPost.featuredImage) }}" alt="Featured image for {{ blogPost.title }}" width="300">
+
+        {% endif %}
+        <a href="{{ path('web_blog_list') }}">Back to blog posts</a>
+    </article>
+{% endblock %}
+

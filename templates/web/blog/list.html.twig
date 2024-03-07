@@ -1,0 +1,21 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog Posts{% endblock %}
+
+{% block body %}
+    <h1>Blog Posts</h1>
+    <div class="blog-posts">
+        {% for post in blogPosts %}
+            <article class="blog-post">
+                <h2>{{ post.title }}</h2>
+                <h3>{{ post.subtitle }}</h3>
+                <p>{{ post.content|slice(0, 150) }}...</p>
+                <a href="{{ path('web_blog_detail', {'id': post.id}) }}">Read more</a>
+            </article>
+        {% else %}
+            <p>No blog posts found.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
